@@ -9,6 +9,7 @@ import socketIO from "socket.io-client";
     where communications are made with the server
 */
 const socket = socketIO.connect("http://localhost:4000");
+console.log("Connecting to", socket);
 
 const Task = () => {
     return (

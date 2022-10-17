@@ -5,8 +5,7 @@ const AddTask = ({ socket }) => {
 
     const handleAddTodo = (e) => {
         e.preventDefault();
-        //👇🏻 Logs the task to the console
-        console.log({ task });
+        socket.emit("createTask", { task });
         setTask("");
     };
     return (
