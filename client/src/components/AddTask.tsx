@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddTask = ({ socket }) => {
-    const [task, setTask] = useState("");
+    const [task, setTask] = useState<string>("");
 
     const handleAddTodo = (e) => {
         e.preventDefault();

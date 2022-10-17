@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { ITask } from "../models/task";
+import isEmpty from "lodash/isEmpty";
 
 const TasksContainer = ({ socket }) => {
 
-  const [tasks, setTasks] = useState({});
+  const [tasks, setTasks] = useState<ITask | null>(null);
 
   useEffect(() => {
     function fetchTasks() {
@@ -35,6 +37,10 @@ const TasksContainer = ({ socket }) => {
       destination,
     });
   };
+
+  if (!tasks || isEmpty(tasks)) {
+    return null;
+  }
 
   return (
     <div className='container'>
