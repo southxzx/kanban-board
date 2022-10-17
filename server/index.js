@@ -8,7 +8,7 @@ app.use(express.json());
 const http = require('http').Server(app);
 const cors = require('cors');
 
-const { taskDragged, createTask, addComment, fetchComments } = require('./socket');
+const { taskDragged, createTask, addComment, fetchComments, pushNotifications } = require('./socket');
 const tasks = require("./data-mockup");
 
 app.use(cors());
@@ -32,6 +32,7 @@ socketIO.on('connection', (socket) => {
     createTask("createTask", socket);
     addComment("addComment", socket);
     fetchComments("fetchComments", socket);
+    pushNotifications("addComment", socket);
     // console.log(taskDragged);
 
     socket.on('disconnect', () => {

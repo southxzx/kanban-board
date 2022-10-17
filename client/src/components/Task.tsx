@@ -9,12 +9,11 @@ import Nav from "./Nav";
     where communications are made with the server
 */
 const socket = io("http://localhost:4000");
-console.log("Connecting to", socket);
 
 const Task = () => {
     return (
         <div>
-            <Nav />
+            <Nav socket={socket}/>
             <AddTask socket={socket} />
             <TasksContainer socket={socket} />
         </div>

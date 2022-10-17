@@ -331,3 +331,23 @@ body {
     outline: none;
     width: 200px;
 }
+
+.noti__bell {
+    position: relative;
+}
+.noti__bell > label {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 16px;
+    color: white;
+}
+.noti__bellIcon {
+    padding: 10px;
+}

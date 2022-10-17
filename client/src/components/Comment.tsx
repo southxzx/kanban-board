@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { useParams } from "react-router-dom";
+import Nav from "./Nav";
 
 const socket = io("http://localhost:4000");
 
@@ -35,6 +36,7 @@ const Comments = () => {
 
     return (
         <div className='comments__container'>
+            <Nav socket={socket} />
             <form className='comment__form' onSubmit={addComment}>
                 <label htmlFor='comment'>Add a comment</label>
                 <textarea

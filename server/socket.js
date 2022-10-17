@@ -50,6 +50,9 @@ const addComment = (name, socket) => {
         });
         //👇🏻 sends a new event to the React app
         socket.emit("comments", taskItems[i].comments);
+
+        // pushNotifications("noti", socket);
+        // socket.emit("pushNoti", taskItems[i].comments);
       }
     }
   });
@@ -67,9 +70,17 @@ const fetchComments = (name, socket) => {
   });
 }
 
+const pushNotifications = (name, socket) => {
+  return socket.on("addComment", (data) => {
+    // const { category, userId, comment, id } = data;
+    socket.emit("pushNoti", "p");
+  });
+}
+
 module.exports = {
   taskDragged,
   createTask,
   addComment,
-  fetchComments
+  fetchComments,
+  pushNotifications
 }
